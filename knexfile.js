@@ -1,7 +1,7 @@
 // Update with your config settings.
 const pgUser = process.env.PG_USER || 'postgres';
 const pgDb = process.env.PG_DB || 'rvnb'
-const prodConnection = `postgres://${pgUser}@localhost/${pgDb}`
+// const prodConnection = `postgres://${pgUser}@localhost/${pgDb}`
 
 module.exports = {
     development: {
@@ -41,7 +41,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: prodConnection,
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10
