@@ -1,7 +1,7 @@
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('reservations').truncate()
-    .then(function () {
+//   return knex('reservations').truncate()
+//     .then(function () {
       // Inserts seed entries
       return knex('reservations').insert([
   
@@ -54,5 +54,5 @@ exports.seed = function(knex) {
             },
 
       ]);
-    });
+    // });
 };

@@ -1,7 +1,7 @@
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('properties').truncate()
-    .then(function () {
+//   return knex('properties').truncate()
+//     .then(function () {
       // Inserts seed entries
       return knex('properties').insert([
   
@@ -48,5 +48,5 @@ exports.seed = function(knex) {
           
 
       ]);
-    });
+    // });
 };
