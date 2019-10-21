@@ -1,6 +1,7 @@
-const knexConfig = require('../../../knexfile');
-const knex = require('knex');
-const db = knex(knexConfig.development);
+// const knexConfig = require('../../../knexfile');
+// const knex = require('knex');
+// const db = knex(knexConfig.development);
+const db = require('../../db-config');
 
 function find() {
     return db('listings');
