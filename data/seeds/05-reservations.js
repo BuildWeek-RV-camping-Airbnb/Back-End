@@ -13,7 +13,7 @@ exports.seed = function(knex) {
             },
 
             {
-                start_date: "2019-11-31",
+                start_date: "2019-11-29",
                 end_date: "2019-12-02",
                 user_id: 4,
                 property_id: 1
