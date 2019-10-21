@@ -104,13 +104,13 @@ exports.up = function(knex) {
       .notNullable();
 
       reservation
-      .string('property_id', 128)
+      .integer('property_id', 128)
       .notNullable()
       .references('id')
       .inTable('properties');
 
       reservation
-      .string('user_id', 128)
+      .integer('user_id', 128)
       .notNullable()
       .references('id')
       .inTable('users');
