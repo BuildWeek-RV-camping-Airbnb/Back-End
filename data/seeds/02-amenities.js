@@ -1,7 +1,7 @@
 exports.seed = function(knex) {
     // Deletes ALL existing entries
-    return knex('amenities').truncate()
-      .then(function () {
+    // return knex('amenities').truncate()
+    //   .then(function () {
         // Inserts seed entries
         return knex('amenities').insert([
     
@@ -31,5 +31,5 @@ exports.seed = function(knex) {
             },
   
         ]);
-      });
+    //   });
   };
