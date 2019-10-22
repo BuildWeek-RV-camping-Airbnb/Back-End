@@ -1,7 +1,7 @@
 [
   {
     "type": "post",
-    "url": "/amenities",
+    "url": "/api/amenities",
     "title": "Create New Amenity",
     "name": "Create_New_Amenity",
     "group": "Amenities",
@@ -51,7 +51,7 @@
   },
   {
     "type": "delete",
-    "url": "/amenities/:id",
+    "url": "/api/amenities/:id",
     "title": "Delete Amenity",
     "name": "Delete_Amenity",
     "group": "Amenities",
@@ -81,7 +81,7 @@
   },
   {
     "type": "get",
-    "url": "/amenities",
+    "url": "/api/amenities",
     "title": "Get All Amenities",
     "name": "GetAmenities",
     "group": "Amenities",
@@ -204,7 +204,7 @@
   },
   {
     "type": "get",
-    "url": "/amenities/:id",
+    "url": "/api/amenities/:id",
     "title": "Get Amenity by Id",
     "name": "GetAmenity_by_Id",
     "group": "Amenities",
@@ -241,7 +241,7 @@
   },
   {
     "type": "put",
-    "url": "/amenities/:id",
+    "url": "/api/amenities/:id",
     "title": "Update Amenity",
     "name": "Update_Amenity",
     "group": "Amenities",
@@ -1575,6 +1575,56 @@
             "optional": false,
             "field": "res",
             "description": "<p>Array of User Objects</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "api/routers/users_router.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "post",
+    "url": "api/users",
+    "title": "Login",
+    "name": "Login",
+    "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>User username (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>User password (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "res.id",
+            "description": "<p>User id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "res.token",
+            "description": "<p>token token</p>"
           }
         ]
       }

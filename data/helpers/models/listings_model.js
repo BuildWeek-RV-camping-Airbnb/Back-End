@@ -4,7 +4,9 @@
 const db = require('../../db-config');
 
 function find() {
-    return db('listings');
+    return db('listings')
+    .join('amenities', "listings.amenity_id", "=", "amenities.id")
+    .join('properties', "listings.property_id", "=", "properties.id");
 }
 
 function findById(id) {
