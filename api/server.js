@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const loginRouter = require('./routers/login_router');
 const usersRouter = require('./routers/users_router');
 const listingsRouter = require('./routers/listings_router');
@@ -6,9 +7,9 @@ const amenitiesRouter = require('./routers/amenities_router');
 const propertiesRouter = require('./routers/properties_router');
 const reservationsRouter = require('./routers/reservations_router');
 
-router.use(cors());
 
 const server = express();
+server.use(cors());
 server.use('/', express.static('docs'));
 server.use('/api/users', usersRouter)
 server.use('/api/login', loginRouter)
