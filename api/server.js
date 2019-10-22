@@ -6,6 +6,8 @@ const amenitiesRouter = require('./routers/amenities_router');
 const propertiesRouter = require('./routers/properties_router');
 const reservationsRouter = require('./routers/reservations_router');
 
+router.use(cors());
+
 const server = express();
 server.use('/', express.static('docs'));
 server.use('/api/users', usersRouter)
