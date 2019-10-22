@@ -12,6 +12,11 @@ function findById(id) {
     .where({ id }).first();
 }
 
+function findByUsername(username) {
+    return db('users')
+    .where({ username }).first();
+}
+
 function add(user) {
     return db('users')
     .insert(user);
@@ -32,6 +37,7 @@ function remove(id) {
 module.exports = {
     find,
     findById,
+    findByUsername,
     add,
     update,
     remove,

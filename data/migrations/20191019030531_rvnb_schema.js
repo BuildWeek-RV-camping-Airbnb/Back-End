@@ -33,11 +33,15 @@ exports.up = function(knex) {
       property.increments();
 
       property
-        .string('property_name', 128);
+        .string('property_name', 128)
+        .notNullable();
+      property
+        .string('description', 128)
+        .notNullable();
 
       property
-        .string('address', 128)
-        .notNullable();
+      .string('address', 128)
+      .notNullable();
 
       property
       .string('city', 128)
@@ -48,12 +52,15 @@ exports.up = function(knex) {
       .notNullable();
 
       property
+      .string('image', 128)
+      .notNullable();
+
+      property
       .integer('price')
       .notNullable();
 
       property
-      .integer('rating')
-      .notNullable();
+      .integer('rating');
 
       property
       .integer('owner_id')

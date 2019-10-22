@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.use(express.json());
 /**
- * @api {get} /amenities Get All Amenities
+ * @api {get} /api/amenities Get All Amenities
  * @apiName GetAmenities
  * @apiGroup Amenities
  * 
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 });
 
 /**
- * @api {get} /amenities/:id Get Amenity by Id
+ * @api {get} /api/amenities/:id Get Amenity by Id
  * @apiName GetAmenity by Id
  * @apiGroup Amenities
  * 
@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
 });
 
 /**
- * @api {post} /amenities Create New Amenity
+ * @api {post} /api/amenities Create New Amenity
  * @apiName Create New Amenity
  * @apiGroup Amenities
  * 
@@ -77,7 +77,7 @@ router.post('/', (req, res) => {
 
 
 /**
- * @api {put} /amenities/:id Update Amenity
+ * @api {put} /api/amenities/:id Update Amenity
  * @apiName Update Amenity
  * @apiGroup Amenities
  * 
@@ -110,7 +110,7 @@ router.put('/:id', (req, res) => {
 });
 
 /**
- * @api {delete} /amenities/:id Delete Amenity
+ * @api {delete} /api/amenities/:id Delete Amenity
  * @apiName Delete Amenity
  * @apiGroup Amenities
  * 
