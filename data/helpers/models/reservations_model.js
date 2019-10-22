@@ -14,12 +14,15 @@ function findById(id) {
 
 function findByOwner(owner_id) {
     return db('reservations')
-        .join('owners', "reservations.owner_id", "=", "owners.id")
+        .select('reservations.id', 'start_date', 'end_date', 'property_id', 'user_id')
+        .join('properties', "reservations.property_id", "=", "properties.id")
+        .join('users', "properties.owner_id", "=", "users.id")
         .where({ owner_id })
 }
 
 function findByUser(user_id) {
     return db('reservations')
+        .select('reservations.id', 'start_date', 'end_date', 'property_id', 'user_id', 'first_name', 'last_name', 'email')
         .join('users', "reservations.user_id", "=", "users.id")
         .where({ user_id })
 }

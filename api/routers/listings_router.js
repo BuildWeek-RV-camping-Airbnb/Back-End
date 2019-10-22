@@ -6,6 +6,13 @@ const router = express.Router();
 
 router.use(express.json());
 
+/**
+ * @api {get} api/listings Get All Listings
+ * @apiName GetListings
+ * @apiGroup Listings
+ * 
+ * @apiSuccess {Array} res Array of Listing Objects
+ */
 router.get('/', (req, res) => {
   Listing.find()
   .then(listings => {
@@ -16,6 +23,15 @@ router.get('/', (req, res) => {
   });
 });
 
+/**
+ * @api {get} api/listings/:id Get Listing by Id
+ * @apiName GetListing by Id
+ * @apiGroup Listings
+ * 
+ * @apiSuccess {Number} id Listing id
+ * @apiSuccess {String} property_id Property Id
+ * @apiSuccess {String} amenity_id Amenity ID
+ */
 router.get('/:id', (req, res) => {
   const { id } = req.params;
 
@@ -33,6 +49,24 @@ router.get('/:id', (req, res) => {
   });
 });
 
+/**
+ * @api {get} api/listings/amenity/:id Get Properties by Amenity
+ * @apiName GetProperties by Amenity
+ * @apiGroup Properties
+ * 
+ * @apiSuccess {Integer} id Listing id
+ * @apiSuccess {String} amenity_id Amenity Id
+ * @apiSuccess {String} property_id Property Id
+ * @apiSuccess {String} name Amenity name
+ * @apiSuccess {String} icon Icon url
+ * @apiSuccess {String} property_name Property name
+ * @apiSuccess {String} address Address
+ * @apiSuccess {String} city City
+ * @apiSuccess {String} state State
+ * @apiSuccess {Integer} price Price
+ * @apiSuccess {Number} rating Rating
+ * @apiSuccess {Integer} owner_id Owner Id
+ */
 router.get('/amenity/:id', (req, res) => {
     const { id } = req.params;
   
@@ -50,6 +84,24 @@ router.get('/amenity/:id', (req, res) => {
     });
 });
 
+/**
+ * @api {get} api/listings/property/:id Get Amenities by Property
+ * @apiName GetAmenities by Property
+ * @apiGroup Amenities
+ * 
+ * @apiSuccess {Integer} id Listing id
+ * @apiSuccess {String} amenity_id Amenity Id
+ * @apiSuccess {String} property_id Property Id
+ * @apiSuccess {String} name Amenity name
+ * @apiSuccess {String} icon Icon url
+ * @apiSuccess {String} property_name Property name
+ * @apiSuccess {String} address Address
+ * @apiSuccess {String} city City
+ * @apiSuccess {String} state State
+ * @apiSuccess {Integer} price Price
+ * @apiSuccess {Number} rating Rating
+ * @apiSuccess {Integer} owner_id Owner Id
+ */
 router.get('/property/:id', (req, res) => {
 const { id } = req.params;
 
@@ -67,12 +119,22 @@ Listing.findByProperty(id)
 });
 });
 
+/**
+ * @api {post} api/users Create New Listing
+ * @apiName Create New Listing
+ * @apiGroup Listings
+ * 
+ * @apiParam {String} property_id Property Id (required)
+ * @apiParam {String} amenity_id Amenity Id (required)
+ * 
+ * @apiSuccess {Number} res Listing id
+ */
 router.post('/', (req, res) => {
   const listingData = req.body;
     console.log(req.body)
   Listing.add(listingData)
   .then(listing => {
-    res.status(201).json({listing});
+    res.status(201).json(listing[0]);
   })
   .catch (err => {
     console.log(err.message)
@@ -80,6 +142,16 @@ router.post('/', (req, res) => {
     });
 });
 
+/**
+ * @api {put} api/listings/:id Update Listing
+ * @apiName Update Listing
+ * @apiGroup Listings
+ * 
+ * @apiParam {String} property_id Property Id (required)
+ * @apiParam {String} amenity_id Amenity Id (required)
+ * 
+ * @apiSuccess {Number} res 1 if Updated
+ */
 router.put('/:id', (req, res) => {
   const { id } = req.params;
   const changes = req.body;
@@ -100,6 +172,13 @@ router.put('/:id', (req, res) => {
   });
 });
 
+/**
+ * @api {delete} api/listings/:id Deletes Listing
+ * @apiName Deletes Listing
+ * @apiGroup Listings
+ * 
+ * @apiSuccess {null} res null
+ */
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
 
