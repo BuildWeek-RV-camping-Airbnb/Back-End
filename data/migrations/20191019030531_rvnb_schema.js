@@ -59,7 +59,8 @@ exports.up = function(knex) {
       .integer('owner_id')
       .notNullable()
       .references('id')
-      .inTable('users');
+      .inTable('users')
+      .onDelete('CASCADE');
     })
 
     .createTable('amenities', amenity => {
@@ -83,12 +84,14 @@ exports.up = function(knex) {
         .integer('amenity_id')
         .notNullable()
         .references('id')
-        .inTable('amenities');
+        .inTable('amenities')
+        .onDelete('CASCADE');
       listing
         .integer('property_id')
         .notNullable()
         .references('id')
-        .inTable('properties');
+        .inTable('properties')
+        .onDelete('CASCADE');
     })
 
     .createTable('reservations', reservation => {
@@ -107,13 +110,15 @@ exports.up = function(knex) {
       .integer('property_id', 128)
       .notNullable()
       .references('id')
-      .inTable('properties');
+      .inTable('properties')
+      .onDelete('CASCADE');
 
       reservation
       .integer('user_id', 128)
       .notNullable()
       .references('id')
-      .inTable('users');
+      .inTable('users')
+      .onDelete('CASCADE');
 
     })
 };
