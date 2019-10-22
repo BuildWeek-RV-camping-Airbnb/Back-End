@@ -163,7 +163,7 @@ router.post('/', (req, res) => {
     console.log(req.body)
   Reservation.add(reservationData)
   .then(reservation => {
-    res.status(201).json(reservation);
+    res.status(201).json(reservation[0]);
   })
   .catch (err => {
     console.log(err.message)
