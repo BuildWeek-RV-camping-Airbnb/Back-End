@@ -82,7 +82,7 @@ router.post('/', (req, res) => {
   })
   .catch (err => {
     console.log(err.message)
-    res.status(500).json({ message: 'Something most likely something wrong on the back-end' });
+    res.status(500).json({ message: 'Something most likely something wrong on the back-end', err });
     });
 });
 
