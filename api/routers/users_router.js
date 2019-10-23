@@ -2,9 +2,12 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../../data/helpers/models/users_model');
+const validate = require('../../data/helpers/middleware/validate');
+const generateToken = require('../../data/helpers/middleware/generateToken');
+const verifyToken = require('../../data/helpers/middleware/verifyToken');
 
 const router = express.Router();
-const secret = 'itsSoSecret'
+
 router.use(express.json());
 
 /**
@@ -14,7 +17,7 @@ router.use(express.json());
  * 
  * @apiSuccess {Array} res Array of User Objects
  */
-router.get('/', (req, res) => {
+router.get('/', verifyToken, (req, res) => {
   User.find()
   .then(users => {
     res.status(200).json(users);
@@ -38,7 +41,7 @@ router.get('/', (req, res) => {
  * @apiSuccess {boolean} owner User true/false
  * @apiSuccess {String} avatar User avatar url
  */
-router.get('/:id', (req, res) => {
+router.get('/:id', verifyToken, (req, res) => {
   const { id } = req.params;
 
   User.findById(id)
@@ -122,7 +125,7 @@ router.post('/login', validate, (req, res) => {
  * 
  * @apiSuccess {Number} res 1 if Updated
  */
-router.put('/:id', (req, res) => {
+router.put('/:id', verifyToken,(req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -151,7 +154,7 @@ router.put('/:id', (req, res) => {
  * 
  * @apiSuccess {null} res null
  */
-router.delete('/:id', (req, res) => {
+router.delete('/:id', verifyToken, (req, res) => {
   const { id } = req.params;
 
   User.remove(id)
@@ -169,43 +172,9 @@ router.delete('/:id', (req, res) => {
 });
 
 
-function validate (req, res, next) {
-  let { username, password } = req.body;
 
-  if (username && password) {
-      User.findByUsername(username)
-      .then(user => {
-          console.log(user)
-          if (user && bcrypt.compareSync(password, user.password)) {
-              
-              let {id, ...objNoId} = user ;
-              req.body = objNoId;
-              req.req_id = id;
-              next();
-          }
-          else {
-              res.status(401).json({ message: 'You shall not pass!!!' })
-          }
-      })
-      .catch(error => {
-          console.log(error.message)
-          res.status(500).json({ message: 'Ran into unexpected error'})
-      })
-  } else {
-      res.status(400).json({ message: 'Please provide credentials'})
-  }
-}
 
-function generateToken(user) {
-  const payload = {
-      username: user.username,
-      subject: user.id,
-  };
-  
-  const options = {
-      expiresIn: '1h'
-  }
 
-  return jwt.sign(payload, secret, options)
-}
+
+
 module.exports = router;

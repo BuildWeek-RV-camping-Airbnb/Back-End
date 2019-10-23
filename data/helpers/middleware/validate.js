@@ -3,13 +3,16 @@ const bcrypt = require('bcryptjs');
 
 function validate (req, res, next) {
     let { username, password } = req.body;
-
+  
     if (username && password) {
-        User.findById(username)
+        User.findByUsername(username)
         .then(user => {
-            if (user[0] && bcrypt.compareSync(password, user[0].password)) {
-        
-                req.body.id = user[0].id
+            console.log(user)
+            if (user && bcrypt.compareSync(password, user.password)) {
+                
+                let {id, ...objNoId} = user ;
+                req.body = objNoId;
+                req.req_id = id;
                 next();
             }
             else {
@@ -23,6 +26,6 @@ function validate (req, res, next) {
     } else {
         res.status(400).json({ message: 'Please provide credentials'})
     }
-}
+  }
 
 module.exports = validate;
