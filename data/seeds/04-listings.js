@@ -74,7 +74,7 @@ exports.seed = function(knex) {
             },
             {
                 'amenity_id': 2,
-                'property_id':4,
+                'property_id': 4,
             },
             {
                 'amenity_id': 5,
