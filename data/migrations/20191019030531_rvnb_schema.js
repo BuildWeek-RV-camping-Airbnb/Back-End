@@ -36,7 +36,7 @@ exports.up = function(knex) {
         .string('property_name', 128)
         .notNullable();
       property
-        .string('description', 128)
+        .string('description', 1000)
         .notNullable();
 
       property
@@ -60,7 +60,7 @@ exports.up = function(knex) {
       .notNullable();
 
       property
-      .integer('rating');
+      .decimal('rating', 2, 2);
 
       property
       .integer('owner_id')

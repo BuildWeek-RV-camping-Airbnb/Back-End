@@ -1,7 +1,7 @@
 const express = require('express');
 
 const Amenity = require('../../data/helpers/models/amenities_model');
-
+const verifyToken = require('../../data/helpers/middleware/verifyToken');
 const router = express.Router();
 
 router.use(express.json());
@@ -12,7 +12,7 @@ router.use(express.json());
  * 
  * @apiSuccess {Array} res Array of Amenity Objects
  */
-router.get('/', (req, res) => {
+router.get('/', verifyToken, (req, res) => {
   Amenity.find()
   .then(amenities => {
     res.status(200).json(amenities);
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
  * @apiSuccess {String} icon Amenity icon url
  */
 
-router.get('/:id', (req, res) => {
+router.get('/:id', verifyToken, (req, res) => {
   const { id } = req.params;
 
   Amenity.findById(id)
@@ -62,7 +62,7 @@ router.get('/:id', (req, res) => {
  *     201 Created
  *      8
  */
-router.post('/', (req, res) => {
+router.post('/', verifyToken, (req, res) => {
   const amenityData = req.body;
     console.log(req.body)
   Amenity.add(amenityData)
@@ -89,7 +89,7 @@ router.post('/', (req, res) => {
  *     201 Created
  *      1
  */
-router.put('/:id', (req, res) => {
+router.put('/:id', verifyToken, (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -119,7 +119,7 @@ router.put('/:id', (req, res) => {
  *     200 Deleted
  *      1
  */
-router.delete('/:id', (req, res) => {
+router.delete('/:id', verifyToken, (req, res) => {
   const { id } = req.params;
 
   Amenity.remove(id)

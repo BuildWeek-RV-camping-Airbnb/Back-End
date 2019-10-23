@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const loginRouter = require('./routers/login_router');
 const usersRouter = require('./routers/users_router');
 const listingsRouter = require('./routers/listings_router');
 const amenitiesRouter = require('./routers/amenities_router');
@@ -12,7 +11,6 @@ const server = express();
 server.use(cors());
 server.use('/', express.static('docs'));
 server.use('/api/users', usersRouter)
-server.use('/api/login', loginRouter)
 server.use('/api/listings', listingsRouter)
 server.use('/api/amenities', amenitiesRouter)
 server.use('/api/properties', propertiesRouter)

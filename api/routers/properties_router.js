@@ -1,6 +1,7 @@
 const express = require('express');
 
 const Property = require('../../data/helpers/models/properties_model');
+const verifyToken = require('../../data/helpers/middleware/verifyToken');
 
 const router = express.Router();
 
@@ -13,7 +14,7 @@ router.use(express.json());
  * 
  * @apiSuccess {Array} res Array of Property Objects
  */
-router.get('/', (req, res) => {
+router.get('/',verifyToken, (req, res) => {
   Property.find()
   .then(properties => {
     res.status(200).json({properties});
@@ -37,7 +38,7 @@ router.get('/', (req, res) => {
  * @apiSuccess {number} rating Rating
  * @apiSuccess {integer} owner_id Owner Id
  */
-router.get('/:id', (req, res) => {
+router.get('/:id',verifyToken, (req, res) => {
   const { id } = req.params;
 
   Property.findById(id)
@@ -76,7 +77,7 @@ router.get('/:id', (req, res) => {
  * @apiSuccess {Boolean} owner User true/false
  * @apiSuccess {String} avatar User avatar url
  */
-router.get('/user/:id', (req, res) => {
+router.get('/user/:id',verifyToken, (req, res) => {
   const { id } = req.params;
 
   Property.findByUser(id)
@@ -108,7 +109,7 @@ router.get('/user/:id', (req, res) => {
  * 
  * @apiSuccess {Number} res Property id
  */
-router.post('/', (req, res) => {
+router.post('/',verifyToken, (req, res) => {
   const propertyData = req.body;
     console.log(req.body)
   Property.add(propertyData)
@@ -136,7 +137,7 @@ router.post('/', (req, res) => {
  * 
  * @apiSuccess {Number} res 1 if Updated
  */
-router.put('/:id', (req, res) => {
+router.put('/:id',verifyToken, (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -163,7 +164,7 @@ router.put('/:id', (req, res) => {
  * 
  * @apiSuccess {null} res null
  */
-router.delete('/:id', (req, res) => {
+router.delete('/:id',verifyToken, (req, res) => {
   const { id } = req.params;
 
   Property.remove(id)
