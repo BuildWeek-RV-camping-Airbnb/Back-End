@@ -52,8 +52,7 @@ exports.up = function(knex) {
       .notNullable();
 
       property
-      .string('image', 128)
-      .notNullable();
+      .string('image', 128);
 
       property
       .integer('price')
