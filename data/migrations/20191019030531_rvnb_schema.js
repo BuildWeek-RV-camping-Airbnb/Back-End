@@ -60,7 +60,7 @@ exports.up = function(knex) {
       .notNullable();
 
       property
-      .float('rating', 2, 2);
+      .integer('rating', 2, 2);
 
       property
       .integer('owner_id')
