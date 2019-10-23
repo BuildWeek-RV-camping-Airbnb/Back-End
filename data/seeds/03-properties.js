@@ -7,7 +7,7 @@ exports.seed = function(knex) {
   
           {
               'property_name': "Underground Hygge",
-              'description': "This inspired dwelling nestled right into the breathtaking Columbia River Gorge mountainside. Reverently framed by the iconic round doorway, the wondrous views will entrance your imagination and inspire an unforgettable journey. Every nook of this little habitation will warm your sole, every cranny will charm your expedition of repose. Up the pathway, tucked into the earth, an unbelievable adventure awaits!",
+              'description': "This inspired dwelling!",
               'address': "424 Woodland Street",
               'city': "Orlando",
               'state': "Florida",
@@ -19,7 +19,7 @@ exports.seed = function(knex) {
           
           {              
               'property_name': "The Ranch",
-              'description': "Walking distance to the Mercedes-Benz Stadium, Georgia World Congress Center, State Farm/Phillips Arena, AmericasMart, Centennial Olympic Park, CNN Center, World of Coke and the Georgia Aquarium.",
+              'description': "Walking distance to the Mercedes-Benz Stadium",
               'address': "321 West St.",
               'city': "Austin",
               'state': "Texas",
