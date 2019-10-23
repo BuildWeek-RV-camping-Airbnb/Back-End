@@ -187,7 +187,7 @@ function validateProperty (req, res, next) {
     console.log('yup')
     next();
   } else {
-    res.status(400).json({ message: 'Missing a required field. Possibly owner_id'})
+    res.status(400).json({ message: 'Missing a required field. Possibly owner_id', body: req.body})
   }
 }
 module.exports = router;
