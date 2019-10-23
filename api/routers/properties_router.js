@@ -109,7 +109,7 @@ router.get('/user/:id',verifyToken, (req, res) => {
  * 
  * @apiSuccess {Number} res Property id
  */
-router.post('/',verifyToken, (req, res) => {
+router.post('/', validateProperty, verifyToken, (req, res) => {
   const propertyData = req.body;
     console.log(req.body)
   Property.add(propertyData)
@@ -180,4 +180,14 @@ router.delete('/:id',verifyToken, (req, res) => {
   });
 });
 
+function validateProperty (req, res, next) {
+  let { property_name, description, address, city , state, image, price, owner_id} = req.body;
+  
+  if (property_name && description && address && city  && state && image && price && owner_id) {
+    console.log('yup')
+    next();
+  } else {
+    res.status(400).json({ message: 'Missing a required field. Possibly owner_id'})
+  }
+}
 module.exports = router;
