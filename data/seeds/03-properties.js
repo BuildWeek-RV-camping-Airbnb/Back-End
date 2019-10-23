@@ -13,7 +13,7 @@ exports.seed = function(knex) {
               'state': "Florida",
               'image': "ggredgg",
               'price': 30,
-              'rating': 2.2,
+              'rating': 2,
               'owner_id': 1
           },
           
@@ -25,7 +25,7 @@ exports.seed = function(knex) {
               'state': "Texas",
               'image': "ggredgg",
               'price': 40,
-              'rating': 2.2,
+              'rating': 2,
               'owner_id': 4
           },
 
@@ -37,7 +37,7 @@ exports.seed = function(knex) {
               'state': "Caliornia",
               'image': "ggredgg",
               'price': 50,
-              'rating': 2.2,
+              'rating': 2,
               'owner_id': 4
           },
 
@@ -49,7 +49,7 @@ exports.seed = function(knex) {
               'state': "Wisconsin",
               'image': "ggredgg",
               'price': 35,
-              'rating': 2.2,
+              'rating': 2,
               'owner_id': 4
           },
           {             
@@ -60,7 +60,7 @@ exports.seed = function(knex) {
             'state': "Texas",
             'image': "ggredgg",
             'price': 45,
-            'rating': 2.2,
+            'rating': 2,
             'owner_id': 1
         },
         {             
@@ -71,7 +71,7 @@ exports.seed = function(knex) {
             'state': "Oregon",
             'image': "ggredgg",
             'price': 25,
-            'rating': 2.2,
+            'rating': 2,
             'owner_id': 4
         },
         {             
@@ -82,7 +82,7 @@ exports.seed = function(knex) {
             'state': "Washington",
             'image': "ggredgg",
             'price': 37,
-            'rating': 2.2,
+            'rating': 2,
             'owner_id': 1
         },
         {             
@@ -93,7 +93,7 @@ exports.seed = function(knex) {
             'state': "Idaho",
             'image': "ggredgg",
             'price': 45,
-            'rating': 2.2,
+            'rating': 2,
             'owner_id': 4
         },
         {             
@@ -104,7 +104,7 @@ exports.seed = function(knex) {
             'state': "Nevada",
             'image': "ggredgg",
             'price': 27,
-            'rating': 2.2,
+            'rating': 2,
             'owner_id': 1
         },
         {             
@@ -115,7 +115,7 @@ exports.seed = function(knex) {
             'state': "Arizona",
             'image': "ggredgg",
             'price': 34,
-            'rating': 2.2,
+            'rating': 2,
             'owner_id': 1
         },
         {             
@@ -126,7 +126,7 @@ exports.seed = function(knex) {
             'state': "Mississippi",
             'image': "ggredgg",
             'price': 31,
-            'rating': 2.2,
+            'rating': 2,
             'owner_id': 4
         },
         {             
@@ -137,7 +137,7 @@ exports.seed = function(knex) {
             'state': "Pennsylvania",
             'image': "ggredgg",
             'price': 15,
-            'rating': 2.2,
+            'rating': 2,
             'owner_id': 4
         },
         {             
@@ -148,7 +148,7 @@ exports.seed = function(knex) {
             'state': "North Carolina",
             'image': "ggredgg",
             'price': 29,
-            'rating': 2.2,
+            'rating': 2,
             'owner_id': 1
         },
 
