@@ -109,7 +109,7 @@ router.get('/user/:id',verifyToken, (req, res) => {
  * 
  * @apiSuccess {Number} res Property id
  */
-router.post('/', validateProperty, verifyToken, (req, res) => {
+router.post('/', verifyToken, (req, res) => {
   const propertyData = req.body;
     console.log(req.body)
   Property.add(propertyData)
