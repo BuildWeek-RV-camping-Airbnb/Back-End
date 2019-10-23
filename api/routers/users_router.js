@@ -74,9 +74,9 @@ router.post('/', (req, res) => {
   const credentials = req.body;
     const hash = bcrypt.hashSync(credentials.password, 14);
     credentials.password = hash
-    console.log(credentials)
   User.add(credentials)
   .then(user => {
+    console.log(user[0])
     const token = generateToken(req.body)
     res.status(201).json({id: user[0], token});
   })
@@ -87,7 +87,7 @@ router.post('/', (req, res) => {
 });
 
 /**
- * @api {post} api/users Login
+ * @api {post} api/users/login Login
  * @apiName Login
  * @apiGroup Users
  * 
