@@ -99,7 +99,10 @@ router.post('/', (req, res) => {
  */
 router.post('/login', validate, (req, res) => {
     const token = generateToken(req.body)
-    res.status(200).json({ message: `Welcome ${req.body.username}`, token});
+    res.status(200).json({username: req.body.username, 
+    id: req.req_id,
+    owner: req.body.owner,
+    token: token})
 });
 
 
@@ -175,8 +178,9 @@ function validate (req, res, next) {
           console.log(user)
           if (user && bcrypt.compareSync(password, user.password)) {
               
-              let {id, ...objNoId} = user 
-              req.body = objNoId
+              let {id, ...objNoId} = user ;
+              req.body = objNoId;
+              req.req_id = id;
               next();
           }
           else {

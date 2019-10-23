@@ -10,7 +10,7 @@ exports.seed = function(knex) {
             "last_name": "Qwerty",
             "email": "jessica@gmail.com",
             "username": "Jessica",
-            "password": "qwerty",
+            "password": "$2a$14$R3pz5CMIviyUl1.d24kIFO8zK8vofthuoU.q.aNHkmp1ghsxeUPV2",
             "owner": "true",
             "avatar": ""
           },
@@ -20,7 +20,7 @@ exports.seed = function(knex) {
             "last_name": "Qwerty",
             "email": "tom@gmail.com",
             "username": "Tom",
-            "password": "qwerty",
+            "password": "$2a$14$R3pz5CMIviyUl1.d24kIFO8zK8vofthuoU.q.aNHkmp1ghsxeUPV2",
             "owner": "false",
             "avatar": ""
           },
@@ -30,7 +30,7 @@ exports.seed = function(knex) {
             "last_name": "Qwerty",
             "email": "lee@gmail.com",
             "username": "Lee",
-            "password": "qwerty",
+            "password": "$2a$14$R3pz5CMIviyUl1.d24kIFO8zK8vofthuoU.q.aNHkmp1ghsxeUPV2",
             "owner": "false",
             "avatar": ""
           },
@@ -40,7 +40,7 @@ exports.seed = function(knex) {
             "last_name": "Qwerty",
             "email": "frank@gmail.com",
             "username": "Frank",
-            "password": "qwerty",
+            "password": "$2a$14$R3pz5CMIviyUl1.d24kIFO8zK8vofthuoU.q.aNHkmp1ghsxeUPV2",
             "owner": "true",
             "avatar": ""
           },
