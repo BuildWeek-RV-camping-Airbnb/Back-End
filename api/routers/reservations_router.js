@@ -1,6 +1,7 @@
 const express = require('express');
 
 const Reservation = require('../../data/helpers/models/reservations_model');
+const verifyToken = require('../../data/helpers/middleware/verifyToken');
 
 const router = express.Router();
 
@@ -13,7 +14,7 @@ router.use(express.json());
  * 
  * @apiSuccess {Array} res Array of Reservation Objects
  */
-router.get('/', (req, res) => {
+router.get('/',verifyToken, (req, res) => {
   Reservation.find()
   .then(reservations => {
     res.status(200).json(reservations);
@@ -34,7 +35,7 @@ router.get('/', (req, res) => {
  * @apiSuccess {Integer} property_id Property Id
  * @apiSuccess {Integer} user_id User Id
  */
-router.get('/:id', (req, res) => {
+router.get('/:id',verifyToken, (req, res) => {
   const { id } = req.params;
 
   Reservation.findById(id)
@@ -62,7 +63,7 @@ router.get('/:id', (req, res) => {
  * @apiSuccess {Integer} property_id Property Id
  * @apiSuccess {Integer} user_id User Id
  */
-router.get('/owner/:id', (req, res) => {
+router.get('/owner/:id',verifyToken, (req, res) => {
   const { id } = req.params;
 
   Reservation.findByOwner(id)
@@ -93,7 +94,7 @@ router.get('/owner/:id', (req, res) => {
  * @apiSuccess {String} last_name User last name
  * @apiSuccess {String} email User email
  */
-router.get('/user/:id', (req, res) => {
+router.get('/user/:id',verifyToken, (req, res) => {
     const { id } = req.params;
   
     Reservation.findByUser(id)
@@ -129,7 +130,7 @@ router.get('/user/:id', (req, res) => {
  * @apiSuccess {number} rating Rating
  * @apiSuccess {integer} owner_id Owner Id
  */
-  router.get('/property/:id', (req, res) => {
+  router.get('/property/:id',verifyToken, (req, res) => {
     const { id } = req.params;
   
     Reservation.findByProperty(id)
@@ -158,7 +159,7 @@ router.get('/user/:id', (req, res) => {
  * 
  * @apiSuccess {Number} res Reservation id
  */
-router.post('/', (req, res) => {
+router.post('/',verifyToken, (req, res) => {
   const reservationData = req.body;
     console.log(req.body)
   Reservation.add(reservationData)
@@ -184,7 +185,7 @@ router.post('/', (req, res) => {
  * 
  * @apiSuccess {Number} res 1 if Updated
  */
-router.put('/:id', (req, res) => {
+router.put('/:id',verifyToken, (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -211,7 +212,7 @@ router.put('/:id', (req, res) => {
  * 
  * @apiSuccess {null} res null
  */
-router.delete('/:id', (req, res) => {
+router.delete('/:id',verifyToken, (req, res) => {
   const { id } = req.params;
 
   Reservation.remove(id)

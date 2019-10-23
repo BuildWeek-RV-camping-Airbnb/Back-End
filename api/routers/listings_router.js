@@ -1,6 +1,7 @@
 const express = require('express');
 
 const Listing = require('../../data/helpers/models/listings_model');
+const verifyToken = require('../../data/helpers/middleware/verifyToken');
 
 const router = express.Router();
 
@@ -13,7 +14,7 @@ router.use(express.json());
  * 
  * @apiSuccess {Array} res Array of Listing Objects
  */
-router.get('/', (req, res) => {
+router.get('/',verifyToken, (req, res) => {
   Listing.find()
   .then(listings => {
     res.status(200).json({listings});
@@ -32,7 +33,7 @@ router.get('/', (req, res) => {
  * @apiSuccess {String} property_id Property Id
  * @apiSuccess {String} amenity_id Amenity ID
  */
-router.get('/:id', (req, res) => {
+router.get('/:id',verifyToken, (req, res) => {
   const { id } = req.params;
 
   Listing.findById(id)
@@ -67,7 +68,7 @@ router.get('/:id', (req, res) => {
  * @apiSuccess {Number} rating Rating
  * @apiSuccess {Integer} owner_id Owner Id
  */
-router.get('/amenity/:id', (req, res) => {
+router.get('/amenity/:id',verifyToken, (req, res) => {
     const { id } = req.params;
   
     Listing.findByAmenity(id)
@@ -102,7 +103,7 @@ router.get('/amenity/:id', (req, res) => {
  * @apiSuccess {Number} rating Rating
  * @apiSuccess {Integer} owner_id Owner Id
  */
-router.get('/property/:id', (req, res) => {
+router.get('/property/:id',verifyToken, (req, res) => {
 const { id } = req.params;
 
 Listing.findByProperty(id)
@@ -129,7 +130,7 @@ Listing.findByProperty(id)
  * 
  * @apiSuccess {Number} res Listing id
  */
-router.post('/', (req, res) => {
+router.post('/',verifyToken, (req, res) => {
   const listingData = req.body;
     console.log(req.body)
   Listing.add(listingData)
@@ -152,7 +153,7 @@ router.post('/', (req, res) => {
  * 
  * @apiSuccess {Number} res 1 if Updated
  */
-router.put('/:id', (req, res) => {
+router.put('/:id',verifyToken, (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -179,7 +180,7 @@ router.put('/:id', (req, res) => {
  * 
  * @apiSuccess {null} res null
  */
-router.delete('/:id', (req, res) => {
+router.delete('/:id',verifyToken, (req, res) => {
   const { id } = req.params;
 
   Listing.remove(id)
