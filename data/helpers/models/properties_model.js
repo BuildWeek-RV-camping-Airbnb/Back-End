@@ -14,8 +14,9 @@ function findById(id) {
 
 function findByUser(owner_id) {
     return db('properties')
-        .join('users', "properties.owner_id", "=", "users.id")
-        .where({ owner_id })
+    // , "properties.owner_id", "=", "users.id"
+        // .join('users')
+        .where({owner_id})
 }
 
 function add(property) {
