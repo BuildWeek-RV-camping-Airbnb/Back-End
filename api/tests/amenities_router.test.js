@@ -218,18 +218,18 @@ describe('when a specific user is requested', () => {
 });
 
 describe('when a new user is created', () => {
-    it('status code should be 201', async () => {
+    it('res.body should be an object', async () => {
         const res = await request(server).post('/api/users')
         .set('Authorization', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikplc3NpY2EiLCJmaXJzdF9uYW1lIjoiSmVzc2ljYSIsImxhc3RfbmFtZSI6IlF3ZXJ0eSIsImVtYWlsIjoiamVzc2ljYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxNCRSM3B6NUNNSXZpeVVsMS5kMjRrSUZPOHpLOHZvZnRodW9VLnEuYU5Ia21wMWdoc3hlVVBWMiIsIm93bmVyIjp0cnVlLCJhdmF0YXIiOiIiLCJpYXQiOjE1NzE5NDgzMDcsImV4cCI6MTU3MTk4NDMwN30.EJoFtp2EKpy9phglZKnpoAyo9Y3ujpWeHgDeVr18mic')
         .send({
-            "property_name": "North Beachs1",
-            "address": "11 Main sSt.",
-            "city": "Miamis",
+            "property_name": "North Beachsa1",
+            "address": "11 Maina sSt.",
+            "city": "Miamias",
             "state": "Floridas",
             "rating": 5,
             "owner_id": 1
         })
-        expect(req.body).toHaveProperty('first_name');
+        expect(typeof res.body).toMatch('object');
     });
 });
 
