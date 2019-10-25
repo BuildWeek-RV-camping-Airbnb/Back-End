@@ -81,7 +81,10 @@ router.post('/', (req, res) => {
   .then(user => {
     console.log(user[0])
     const token = generateToken(req.body)
-    res.status(201).json({id: user[0], token});
+    res.status(201).json({username: req.body.username, 
+      id: req.req_id,
+      owner: req.body.owner,
+      token: token});
   })
   .catch (err => {
     console.log(err.message)
