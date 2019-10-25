@@ -44,7 +44,8 @@ router.get('/:id',verifyToken, (req, res) => {
   Property.findById(id)
   .then(property => {
     if (property) {
-      res.status(200).json(property);
+      res.status(200).send(property);
+      // res.status(200).json(property);
     } else {
       res.status(404).json({ message: 'Could not find property with given id.' })
     }
