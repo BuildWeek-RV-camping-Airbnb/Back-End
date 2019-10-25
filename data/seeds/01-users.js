@@ -10,7 +10,7 @@ exports.seed = function(knex) {
           'last_name': "Smithson",
           'email': "clare@gmail.com",
           'username': "CSmithson",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/Mk5JH9n"
           },
@@ -20,7 +20,7 @@ exports.seed = function(knex) {
           'last_name': "Mason",
           'email': "marcus@gmail.com",
           'username': "MMason",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/0JrgYff"
           },
@@ -32,7 +32,7 @@ exports.seed = function(knex) {
           'last_name': "LaFlamme",
           'email': "jason@gmail.com",
           'username': "JLaFlamme",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/HDJsLzJ"
           },
@@ -42,7 +42,7 @@ exports.seed = function(knex) {
           'last_name': "Charles",
           'email': "tina@gmail.com",
           'username': "TCharles",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/tbd9mmb"
           },
@@ -52,7 +52,7 @@ exports.seed = function(knex) {
           'last_name': "Lopez",
           'email': "mama@gmail.com",
           'username': "Mama",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/dpxWLsc"
           },
@@ -62,7 +62,7 @@ exports.seed = function(knex) {
           'last_name': "Sloan",
           'email': "matty@gmail.com",
           'username': "MSloan",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/4SGn2Hv"
           },
@@ -72,7 +72,7 @@ exports.seed = function(knex) {
           'last_name': "Mumm",
           'email': "david@gmail.com",
           'username': "DMumm",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/YcVg0nP"
           },
@@ -82,7 +82,7 @@ exports.seed = function(knex) {
           'last_name': "Khan",
           'email': "ajit@gmail.com",
           'username': "AKhan",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/jVPN3NL"
           },
@@ -92,7 +92,7 @@ exports.seed = function(knex) {
           'last_name': "Stone",
           'email': "hana@gmail.com",
           'username': "HStone",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/kqL15v5"
           },
@@ -102,7 +102,7 @@ exports.seed = function(knex) {
           'last_name': "Pérez",
           'email': "coco@gmail.com",
           'username': "CPerez",
-          'password': "qwerty",
+          'password': "$2a$14$YUGEjrZX1cudaY2t0HMSI.1q.ZRQo2nOwX2/dk1cO0veHABsr/Jwi",
           'owner': true,
           'avatar': "https://ibb.co/DkhSpQM"
           },
